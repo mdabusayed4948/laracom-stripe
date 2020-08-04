@@ -11,9 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'FrontEndController@index',
+    'as' => 'index'
+]);
+
+Route::get('/product/{id}', [
+    'uses' => 'FrontEndController@singleProduct',
+    'as' => 'product.single'
+]);
+
+Route::post('/cart/add', [
+    'uses' => 'ShoppingController@add_to_cart',
+    'as' => 'cart.add'
+]);
 
 Route::resource('products', 'ProductsController');
 
