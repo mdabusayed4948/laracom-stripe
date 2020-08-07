@@ -100,6 +100,10 @@
                         <div class="cart-total">
                             <h3 class="cart-total-title">Cart Totals</h3>
                             <h5 class="cart-total-total">Total: <span class="price">${{ Cart::total() }}</span></h5>
+                            <a style="margin-bottom: 5px" href="{{ route('index') }}" class="btn btn-medium btn--secondary btn-hover-shadow">
+                                <span class="text">Continue Shopping</span>
+                                <span class="semicircle"></span>
+                            </a>
                             <a href="{{ route('cart.checkout') }}" class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>

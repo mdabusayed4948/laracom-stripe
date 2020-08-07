@@ -65,7 +65,7 @@
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <h5 class="total amount">${{ Cart::total() }}</h5>
+                                            <h5 class="total amount">${{ number_format(Cart::total()) }}</h5>
                                         </td>
                                     </tr>
 
@@ -89,28 +89,31 @@
                                         </a>
 
                                         <span style="float: right;">
-								<form action="/your-server-side-code" method="POST">
-									  <script
-                                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-                                          data-amount="999"
-                                          data-name="Stripe.com"
-                                          data-description="Widget"
-                                          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                          data-locale="auto"
-                                          data-zip-code="true">
-									  </script>
-								</form>
+                                            <form action="{{ route('cart.checkout') }}" method="POST">
+                                                  @csrf
+                                                  <script
+                                                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                      data-key="pk_test_51HDFxPD88XNR6Fa7e68vpXw92nRrkVkqwvDQg6HRZDwQiq7bwknPitcgtVihR4OYbJAF2v6BupniajG38Is6mRzC00gVd8oiYd"
+                                                      data-amount="{{ Cart::total() * 100 }}"
+                                                      data-name="Laravel E-commerce "
+                                                      data-description="Buy some books"
+                                                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                                      data-locale="auto">
+                                                  </script>
+                                            </form>
 							</span>
                                     </div>
                                 </div>
 
                             </form>
                         </div>
+
                     </div>
 
                 </div>
+
             </div>
         </div>
     </div>
+
 @endsection
